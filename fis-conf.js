@@ -37,7 +37,7 @@ fis.match('/pages/(**)', {
 
 // ------ 配置lib
 fis.match('/lib/**.js', {
-    release: '${project.static}/$&'
+  release: '${project.static}/$&'
 });
 
 
@@ -134,8 +134,12 @@ fis.match('::package', {
 // debug后缀 不会压缩
 var map = {
     'prod': {
-        // host: 'http://wuyuying.com',
-        path: '/${project.name}'
+        host: 'http://demo.wuyuying.com',
+        path: '/lab'
+    },
+    'dev': {
+      host: 'http://127.0.0.1:8080',
+      path: ''
     }
 };
 
@@ -172,15 +176,21 @@ Object.keys(map).forEach(function(v) {
                 allInOne: true,
             })
         })
-        .match('/components/**.css', {
-            packTo: '/pkg/components.css'
-        })
-        .match('/components/**.js', {
-            packTo: '/pkg/components.js'
-        })
-        .match('/modules/**.{scss,less,css}', {
-            packTo: '/pkg/modules.css'
-        })
+        // .match('/components/**.css', {
+        //     packTo: '/pkg/components.css'
+        // })
+        // .match('/components/**.js', {
+        //     packTo: '/pkg/components.js'
+        // })
+        // .match('/modules/lib/**.js', {
+        //     packTo: '/pkg/modules-lib.js'
+        // })
+        // .match('/modules/qrcode/**.{scss,less,css}', {
+        //     packTo: '/pkg/qrcode.css'
+        // })
+        // .match('/modules/qrcode/**.js', {
+        //     packTo: '/pkg/qrcode.js'
+        // })
 });
 
 

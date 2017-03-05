@@ -1,11 +1,12 @@
 /* Zepto v1.2.0 - zepto event ajax form ie - zeptojs.com/license */
 (function(global, factory) {
-    if(exports === 'object' && typeof module !== 'undefined')
-        module.exports = factory(global)
-    if (typeof define === 'function' && define.amd)
-        define(function() { return factory(global) })
-    else
-        factory(global)
+    // if(exports === 'object' && typeof module !== 'undefined')
+    //     module.exports = factory(global)
+    // if (typeof define === 'function' && define.amd)
+    //     define(function() { return factory(global) })
+    // else
+    //     factory(global)
+    module.exports = factory(global);
 }( typeof window !== "undefined" ? window : this, function(window) {
     var Zepto = (function() {
         var undefined, key, $, classList, emptyArray = [], concat = emptyArray.concat, filter = emptyArray.filter, slice = emptyArray.slice,

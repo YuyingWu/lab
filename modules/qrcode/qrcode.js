@@ -1,5 +1,5 @@
 var QRious = require('./qrious.js');
-require('zepto');
+require('lib/zepto');
 
 const CANVAS = $('#qr');
 const QR_IMG = $('#qr-img');
