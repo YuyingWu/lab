@@ -1,14 +1,5 @@
-<script id="tpl-footer" type="text/html">
-	<%for(key in list) {%>
-	<span>|</span>
-	<a href="<%:=list[key].url%>" target="_blank"><%:=list[key].cn%></a>
-	<%}%>
-</script>
-
-<footer class="wgt-footer">
-	<p>&copy; 2017 伍酱</p>
-</footer>
+<footer class="wgt-footer" id="wgt-footer"></footer>
 
 <script>
-		require.async('footer.js');
+		require.async('footer.es');
 </script>
