@@ -68,15 +68,15 @@ fis.match(/^\/modules\/(.*\.less)$/i, {
 });
 
 // ------ 配置前端模版 使用template.js
-fis.match('**.tmpl', {
-    parser: fis.plugin('template', {
-        sTag: '<#',
-        eTag: '#>',
-        global: 'template'
-    }),
-    isJsLike: true,
-    release: false
-});
+// fis.match('**.tmpl', {
+//     parser: fis.plugin('template', {
+//         sTag: '<#',
+//         eTag: '#>',
+//         global: 'template'
+//     }),
+//     isJsLike: true,
+//     release: false
+// });
 
 fis.match(/^\/modules\/(.*\.(scss|less|css))$/i, {
     rExt: '.css',
@@ -137,8 +137,12 @@ var map = {
         host: 'http://demo.wuyuying.com',
         path: '/lab'
     },
+    'debug': {
+      host: '',
+      path: ''
+    },
     'dev': {
-      host: 'http://127.0.0.1:8080',
+      host: '',
       path: ''
     }
 };
@@ -197,7 +201,7 @@ Object.keys(map).forEach(function(v) {
 // 压缩css js html
 Object.keys(map)
     .filter(function(v) {
-        return v.indexOf('debug') < 0
+        return v.indexOf('debug') > 0
     })
     .forEach(function(v) {
         fis.media(v)

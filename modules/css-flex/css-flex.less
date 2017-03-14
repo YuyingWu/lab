@@ -1,0 +1,56 @@
+@import url(/modules/css/variable.less);
+@import url(/modules/css/base.less);
+@import url(/components/nav/nav.less);
+@import url(/components/footer/footer.less);
+.borderColor(@color){
+  border: 1px solid @color;
+}
+.container-color{
+  color: @highlight-color;
+}
+.item-color{
+  color: @else-color;
+}
+.flex-container{
+  display: flex;
+  .borderColor(@highlight-color);
+}
+.box{
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  .borderColor(@else-color);
+}
+.demo-flex-grow{
+  .box{
+    flex-grow: 1;
+  }
+  .different-grow-rate{
+    .one{
+      flex-grow: 1;
+    }
+    .two{
+      flex-grow: 2;
+    }
+    .three{
+      flex-grow: 3;
+    }
+  }
+}
+.demo-flex-shrink{
+  .box{
+    flex-shrink: 1;
+  }
+  .different-shrink-rate{
+    .one{
+      flex-grow: 1;
+    }
+    .two{
+      flex-grow: 3;
+    }
+    .three{
+      flex-grow: 5;
+    }
+  }
+}

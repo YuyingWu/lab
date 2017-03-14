@@ -34,14 +34,18 @@ body{
         outline: 0;
     }
 }
-// .body-home{
-//     background: @base-color;
-//     color: @font-color;
-// }
 .page{
-    // max-width: 980px;
+    max-width: 980px;
     margin-left: auto;
     margin-right: auto;
     font-size: @base-font-size;
     display: block;
+}
+q{
+  border: 1px solid #ccc;
+  padding: 0 1em;
+  &:before, &:after{
+    content: "";
+  }
+  border-radius: @border-radius;
 }
