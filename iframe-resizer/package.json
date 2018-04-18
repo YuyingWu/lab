@@ -1,0 +1,26 @@
+{
+  "name": "jest-setup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YuyingWu/jest-setup.git"
+  },
+  "keywords": [],
+  "author": "Yuying Wu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YuyingWu/jest-setup/issues"
+  },
+  "homepage": "https://github.com/YuyingWu/jest-setup#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.3",
+    "parcel-bundler": "^1.7.0"
+  }
+}
