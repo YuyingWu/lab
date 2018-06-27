@@ -1,8 +1,17 @@
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
+const mongoose = require('mongoose');
 const schema = require('./schema/schema');
 
 const app = express();
+
+// connect to mLab db
+const user = 'wyy';
+const pw = 'test1234';
+mongoose.connect(`mongodb://${user}:${pw}@ds121251.mlab.com:21251/graphql-db`);
+mongoose.connection.once('open', () => {
+  console.log('connected to mLab');
+});
 
 app.get('/', function (req, res) {
   res.send('Hello World');
