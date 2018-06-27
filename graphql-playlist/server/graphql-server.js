@@ -10,7 +10,8 @@ app.get('/', function (req, res) {
 
 // bind express with graphql
 app.use('/graphql', graphqlHTTP({
-  schema
+  schema,
+  graphiql: true
 }));
 
 app.listen(5000, () => {
