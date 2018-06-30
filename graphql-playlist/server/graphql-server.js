@@ -6,9 +6,9 @@ const schema = require('./schema/schema');
 const app = express();
 
 // connect to mLab db
-const user = 'wyy';
+const user = 'root';
 const pw = 'test1234';
-mongoose.connect(`mongodb://${user}:${pw}@ds121251.mlab.com:21251/graphql-db`);
+mongoose.connect(`mongodb://${user}:${pw}@ds121371.mlab.com:21371/graphql-db`);
 mongoose.connection.once('open', () => {
   console.log('connected to mLab');
 });
