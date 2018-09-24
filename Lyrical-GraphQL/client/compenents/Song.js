@@ -47,9 +47,11 @@ query ($songId: ID!){
 `;
 
 export default graphql(query, {
-  options: {
-    variables: {
-      songId: '5b9c7f109b170b972a49c3c8',
+  options: props => {
+    return {
+      variables: {
+        songId: props.params.songId,
+      }
     }
   }
 })(Song);

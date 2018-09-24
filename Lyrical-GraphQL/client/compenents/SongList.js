@@ -1,9 +1,25 @@
 import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
+import { graphql, compose } from 'react-apollo';
 import { Link } from 'react-router';
+import gql from 'graphql-tag';
 import query from '../queries/fetchSong';
 
 class SongList extends Component {
+  onDel(songId) {
+    const { mutate } = this.props;
+
+    mutate({
+      variables: {
+        songId,
+      },
+      refetchQueries: [{
+        query,
+      }]
+    }).then(() => {
+      // blah blah
+    });
+  }
+
   render() {
     const { data = {} } = this.props;
     const { loading, songs } = data;
@@ -14,7 +30,7 @@ class SongList extends Component {
 
         <ul className="collection">
           { !loading && songs.length ? songs.map(song => (
-            <li className="collection-item" key={`song-${song.id}`}><Link to={`/song/${song.id}`}>{ song.title }</Link></li>
+            <li className="collection-item" key={`song-${song.id}`}><Link to={`/song/${song.id}`}>{ song.title }</Link> <div className="right" onClick={this.onDel.bind(this, song.id)}>delete</div></li>
           )) : <li>Loading...</li> }
         </ul>
 
@@ -26,4 +42,15 @@ class SongList extends Component {
   }
 }
 
-export default graphql(query)(SongList);
+const mutation = gql`
+mutation($songId: ID!){
+  deleteSong(id:$songId) {
+    id
+  }
+}
+`
+
+export default compose(
+  graphql(query),
+  graphql(mutation)
+)(SongList);
