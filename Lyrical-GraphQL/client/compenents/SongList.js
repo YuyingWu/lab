@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router';
+import query from '../queries/fetchSong';
 
 class SongList extends Component {
   render() {
@@ -14,7 +14,7 @@ class SongList extends Component {
 
         <ul className="collection">
           { !loading && songs.length ? songs.map(song => (
-            <li className="collection-item" key={`song-${song.id}`}>{ song.title }</li>
+            <li className="collection-item" key={`song-${song.id}`}><Link to={`/song/${song.id}`}>{ song.title }</Link></li>
           )) : <li>Loading...</li> }
         </ul>
 
@@ -25,14 +25,5 @@ class SongList extends Component {
     );
   }
 }
-
-const query = gql`
-  query {
-    songs {
-      title
-      id
-    }
-  }
-`;
 
 export default graphql(query)(SongList);
